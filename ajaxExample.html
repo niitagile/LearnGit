@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>The XMLHttpRequest Object</h1>
+  <button type="button" onclick="loadDoc()">Change Content</button>
+<div id="demo1">
+  <img id="img">
+</div>
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();//create object
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var img = document.createElement('img');
+      img.src = this.response;
+      document.body.appendChild(img);
+    }
+  };
+  xhttp.open("GET", "img.png", false);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
